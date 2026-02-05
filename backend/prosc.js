@@ -1,12 +1,12 @@
-// Mock SC Integration
+// Mock SC integration
 class Prosc {
   async validateAPI(apiSchema) {
-    // จำลองการตรวจสอบ API กับ SC
+    // ตรวจสอบ schema
     return { valid: true, message: "SC validation passed" };
   }
 
   async sendToSC(apiSchema) {
-    // ส่ง schema ไปให้ SC ทำงานต่อ
+    // ส่งไป SC
     console.log("✅ ส่ง API Schema ไป SC:", apiSchema);
     return { success: true };
   }
