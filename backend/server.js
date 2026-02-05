@@ -74,3 +74,16 @@ export default function App(){ return (<div>${body}</div>); }`;
 
   await fs.remove(tempDir);
 });
+const AutoGenerator = require("./autoGenerator");
+
+// Endpoint สั่งสร้าง 1000 API
+app.post("/autoGenerate", async (req, res) => {
+  try {
+    const total = req.body.total || 1000;
+    const autoGen = new AutoGenerator(total);
+    const result = await autoGen.run();
+    res.json({ status: "success", totalGenerated: result.length });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
